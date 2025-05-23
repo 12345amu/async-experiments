@@ -6,7 +6,15 @@ async.waterfall([
     setTimeout(() => {
       callback(null, "Hot water");
     }, 500);
-  }
+  },
+    function(hotWater, callback) {
+    console.log("2. Adding coffee powder to:", hotWater);
+    setTimeout(() => {
+      callback(null, "Coffee decoction");
+    }, 500);
+  },
+
+  
 ], function (err, result) {
   if (err) {
     console.error("Error:", err);
