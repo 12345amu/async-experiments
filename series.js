@@ -12,7 +12,10 @@ function task1(callback) {
 }
 
 function task2(callback) {
-  
+    setTimeout(() => {
+    console.log('Task 2 done');
+    callback(null, 'Result from task 2');
+    }, 2000);
 }
 
 function task3(callback) {
