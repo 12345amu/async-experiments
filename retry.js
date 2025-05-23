@@ -19,6 +19,19 @@ function simulateFetch(callback) {
   }, 300);
 }
 
+const maxRetries = 3;
+const retryInterval = 500;
+
 console.log("Starting the data fetch with retry mechanism...");
 
+
+
+async.retry({ times: maxRetries, interval: retryInterval }, simulateFetch, (err, result) => {
+  if (err) {
+    console.error(" Failed after retries:", err.message);
+    process.exit(1);
+  } else {
+    console.log(" Success:", result.message);
+  }
+});
 
