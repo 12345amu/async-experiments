@@ -1,6 +1,13 @@
 const async = require('async');
 
 function task1(callback) {
+    function task1(callback) {
+  setTimeout(() => {
+    console.log('Task 1 done');
+    callback(null, 'Result from task 1');
+  }, 1000);
+}
+
   
 }
 
@@ -18,6 +25,9 @@ async.series([task1, task2, task3], (err, results) => {
     console.error('Error:', err);
     return;
   }
+  
+
   console.log('All tasks completed.');
   console.log('Results:', results);
 });
+
