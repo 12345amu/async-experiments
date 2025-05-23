@@ -32,3 +32,19 @@ function runTask(taskName, done) {
     done(); 
   });
 }
+
+const taskQueue = async.queue(runTask, 2);
+
+taskNames.forEach(taskName => {
+  taskQueue.push(taskName, err => {
+    if (err) {
+      console.log(`Error in ${taskName}`); 
+    } else {
+      console.log(` Finished "${taskName}"`); 
+    }
+  });
+});
+
+taskQueue.drain(() => {
+  console.log("\n All tasks completed."); 
+});
