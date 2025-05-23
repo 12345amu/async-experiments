@@ -19,8 +19,12 @@ async.waterfall([
       callback(null, "Milk coffee");
     }, 500);
   },
-
-
+    function(milkCoffee, callback) {
+    console.log("4. Adding sugar to:", milkCoffee);
+    setTimeout(() => {
+      callback(null, "Sweet South Indian filter coffee");
+    }, 300);
+  }
   
 ], function (err, result) {
   if (err) {
