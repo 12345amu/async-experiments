@@ -16,8 +16,11 @@ function task2(callback) {
 }
 
 function task3(callback) {
+    setTimeout(() => {
+    console.log('Task 3 done');
+    callback(null, 'Result from task 3');
+    }, 1500);
 
-  
 }
 
 // Run tasks in series
