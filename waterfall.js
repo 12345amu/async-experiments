@@ -13,6 +13,13 @@ async.waterfall([
       callback(null, "Coffee decoction");
     }, 500);
   },
+    function(decoction, callback) {
+    console.log("3. Adding milk to:", decoction);
+    setTimeout(() => {
+      callback(null, "Milk coffee");
+    }, 500);
+  },
+
 
   
 ], function (err, result) {
