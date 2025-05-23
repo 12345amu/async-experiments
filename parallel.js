@@ -29,3 +29,21 @@ const snackMakers = {
     }, 1500);
   }
 };
+
+const snackTasks = selectedItems.map(item => {
+  if (!snackMakers[item]) {
+    return function(cb) {
+      cb(new Error(` Unknown snack: ${item}`)); 
+    };
+  }
+  return snackMakers[item];
+});
+
+
+async.parallel(snackTasks, (err, results) => {
+  if (err) {
+    console.error(' Error:', err.message); 
+  } else {
+    console.log('All ordered items are ready:', results); 
+  }
+});
