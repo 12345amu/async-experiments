@@ -1,15 +1,12 @@
 const async = require('async');
 
 function task1(callback) {
-    function task1(callback) {
   setTimeout(() => {
     console.log('Task 1 done');
     callback(null, 'Result from task 1');
   }, 1000);
 }
 
-  
-}
 
 function task2(callback) {
     setTimeout(() => {
@@ -19,6 +16,7 @@ function task2(callback) {
 }
 
 function task3(callback) {
+
   
 }
 
