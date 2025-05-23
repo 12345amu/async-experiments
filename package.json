@@ -9,8 +9,5 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "async": "^3.2.6"
-  }
+  "type": "commonjs"
 }
