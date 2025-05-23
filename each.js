@@ -11,4 +11,19 @@ function asyncSquare(num, callback) {
   }, delay);
 }
 
+async.each(
+  numbers,
+  (number, callback) => {
+    asyncSquare(number, callback);
+  },
+  (err) => {
+    if (err) {
+      console.error('Error processing numbers:', err);
+    } else {
+      console.log('All numbers processed.');
+    }
+  }
+);
+
+
 console.log('Input numbers:', numbers);
