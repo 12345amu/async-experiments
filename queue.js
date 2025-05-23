@@ -1,40 +1,34 @@
-const async = require('async'); 
-function runTask(taskName, done) {
-  if (!taskName) {
-    return done(new Error('Task name is required')); // Error #1: missing task name
-  }
+const async = require('async');
 
+const taskNames = process.argv.slice(2);
+
+if (taskNames.length === 0) {
+  console.log(" Please provide task names.\nExample: node queue.js build deploy");
+  process.exit(1);
+}
+
+function runTask(taskName, done) {
   console.log(`\n  Starting task: ${taskName}`); 
 
   async.series([
     function preparation(cb) {
       console.log(` [${taskName}] Preparing...`); 
-      setTimeout(() => {
-        if (taskName === 'fail-prep') return cb(new Error('❗ Preparation failed'));
-        cb();
-      }, 300);
+      setTimeout(cb, Math.random() * 500 + 300);
     },
     function execution(cb) {
       console.log(` [${taskName}] Executing...`); 
-      setTimeout(() => {
-        if (taskName === 'fail-exec') return cb(new Error(' Execution failed')); 
-        cb();
-      }, 500);
+      setTimeout(cb, Math.random() * 700 + 300);
     },
     function wrapUp(cb) {
       console.log(` [${taskName}] Finalizing...`); 
-      setTimeout(() => {
-        if (taskName === 'fail-final') return cb(new Error('❗ Wrap-up failed'));
-        cb();
-      }, 400);
+      setTimeout(cb, Math.random() * 400 + 300);
     }
   ], function (err) {
     if (err) {
       console.log(` Error in task: ${taskName}`); 
-      console.error(err.message); 
     } else {
       console.log(` Task "${taskName}" complete`); 
     }
-    done();
+    done(); 
   });
 }
