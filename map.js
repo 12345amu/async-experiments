@@ -13,7 +13,7 @@ function generateCertificate(name, callback) {
     callback(null, `Certificate of Excellence for ${name}`);
   }, 1000);
 }
-async.map(generateCertificate, students, function (err, results) {
+async.map(students, generateCertificate, function (err, results) {
   if (err) {
     console.log(" Error in generating certificates");
     return;
