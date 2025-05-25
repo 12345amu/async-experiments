@@ -10,3 +10,10 @@ const people = args.map(arg => {
     hasAadhaar: status === 'true'
   };
 });
+
+function checkAadhaar(person, callback) {
+  setTimeout(() => {
+    console.log(` Checking Aadhaar for ${person.name}`);
+    callback(null, person.hasAadhaar);
+  }, 500);
+}
