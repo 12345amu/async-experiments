@@ -8,3 +8,11 @@ if (customers.length === 0) {
   console.log("Usage: node tea-stall.js Alice Bob Charlie");
   process.exit(1);
 }
+
+function serveTea(customer, callback) {
+  console.log(` Preparing tea for ${customer}...`);
+  setTimeout(() => {
+    console.log(` ${customer} received their tea.`);
+    callback();
+  }, 1500);
+}
