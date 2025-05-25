@@ -19,8 +19,10 @@ function checkAadhaar(person, callback) {
 }
 
 async.filter(people, checkAadhaar, (err, result) => {
-if (person.name === 'error') {
-  return callback('Name error'); 
-}
-  console.error("❌ Error:", err.message); 
+  if (err) {
+    console.error("Error during filtering:", err);
+    return;
+  }
+
+  console.log(" People with Aadhaar:", result.map(p => p.name).join(', '));
 });
