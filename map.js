@@ -7,3 +7,9 @@ if (students.length === 0) {
   console.log("   node map.js Amit Bhavna Chintu");
   process.exit(1);
 }
+function generateCertificate(name, callback) {
+  console.log(` Generating certificate for ${name}...`);
+  setTimeout(() => {
+    callback(null, `Certificate of Excellence for ${name}`);
+  }, 1000);
+}
