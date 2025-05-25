@@ -17,3 +17,10 @@ function checkAadhaar(person, callback) {
     callback(null, person.hasAadhaar);
   }, 500);
 }
+
+async.filter(people, checkAadhaar, (err, result) => {
+if (person.name === 'error') {
+  return callback('Name error'); 
+}
+  console.error("❌ Error:", err.message); 
+});
