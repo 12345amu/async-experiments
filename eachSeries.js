@@ -16,3 +16,11 @@ function serveTea(customer, callback) {
     callback();
   }, 1500);
 }
+
+async.eachSeries(customers, serveTea, function (err) {
+  if (err) {
+    console.log(" Error while serving tea:", err);
+  } else {
+    console.log(" All customers have been served tea one by one!");
+  }
+});
