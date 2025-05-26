@@ -27,3 +27,15 @@ function hasFreshGulabJamun(shop, callback) {
     callback(null, isFresh);
   }, Math.floor(Math.random() * 1000));
 }
+
+async.detect(sweetShops, hasFreshGulabJamun, (err, result) => {
+  if (err) {
+    return console.error(' Error checking sweet shops:', err);
+  }
+
+  if (result) {
+    console.log(` First shop with fresh gulab jamun: ${result}`);
+  } else {
+    console.log(' No shop has fresh gulab jamun.');
+  }
+});
