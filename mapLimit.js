@@ -15,7 +15,7 @@ function downloadFile(fileName, callback) {
 
   setTimeout(() => {
     console.log(` Download complete: ${fileName}`);
-    callbak(null, `${fileName} downloaded`);
+    callback(null, `${fileName} downloaded`);
   }, delay);
 }
 const downloadLimit = 3;
