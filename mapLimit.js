@@ -23,5 +23,8 @@ const downloadLimit = 3;
 async.mapLimit(files, downloadLimit, downloadFile, (err, results) => {
   if (err) {
     console.error(' Error during downloads:', err);
-  } 
+  } else {
+    console.log('\n All files downloaded:');
+    results.forEach(result => console.log(result));
+  }
 });
