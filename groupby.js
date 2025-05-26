@@ -14,7 +14,7 @@ function groupByFirstLetter(name, callback) {
     callback( null, key);
   }, 100);
 }
-async.groupby(names, groupByFirstLetter, (err, result) => {
+async.groupBy(names, groupByFirstLetter, (err, result) => {
   if (err) {
     console.error('Error:', err);
     process.exit(1);
