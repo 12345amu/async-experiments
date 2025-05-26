@@ -18,3 +18,10 @@ function downloadFile(fileName, callback) {
     callbak(null, `${fileName} downloaded`);
   }, delay);
 }
+const downloadLimit = 3;
+
+async.mapLimit(files, downloadLimit, downloadFile, (err, results) => {
+  if (err) {
+    console.error(' Error during downloads:', err);
+  } 
+});
