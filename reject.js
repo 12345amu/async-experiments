@@ -13,7 +13,7 @@ console.log('Parsed numbers:', numbers);
 async.reject(numbers, (number, callback) => {
   const isEven = number % 2 === 0;
   setTimeout(() => {
-
+    callback(null, isEven); 
   }, 100);
 }, (err, result) => {
   if (err) {
