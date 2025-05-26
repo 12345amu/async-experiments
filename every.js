@@ -14,7 +14,7 @@ if (numbers.some(isNaN)) {
 function isEven(num, callback) {
   setTimeout(() => {
     const isEven = num % 2 === 0;
-    callback(isEven, null);
+    callback(null, isEven);
   }, 100);
 }
  
