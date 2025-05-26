@@ -14,3 +14,14 @@ function groupByFirstLetter(name, callback) {
     callback( key);
   }, 100);
 }
+async.groupby(names, groupByFirstLetter, (err, result) => {
+  if (err) {
+    console.error('Error:', err);
+    process.exit(1);
+  }
+
+  console.log('Grouped Names:');
+  for (const [letter, group] of Object.entries(result)) {
+    console.log(`${letter}: ${group.join(', ')}`);
+  }
+});
