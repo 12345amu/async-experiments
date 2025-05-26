@@ -7,3 +7,9 @@ if (numbers.length === 0 || numbers.some(isNaN)) {
   console.error('Please provide numbers as CLI arguments');
   process.exit(1);
 }
+function addAsync(total, current, callback) {
+  console.log(`Adding ${total} + ${current}`);
+  setTimeout(() => {
+    callback(null, total + current);
+  }, 200); 
+}
