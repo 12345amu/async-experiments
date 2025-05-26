@@ -13,7 +13,7 @@ function addAsync(total, current, callback) {
     callback(null, total + current);
   }, 200); 
 }
-async.reduce(numbers,  addAsync, (err, result) => {
+async.reduce(numbers, 0, addAsync, (err, result) => {
   if (err) {
     console.error('Error during reduction:', err);
     process.exit(1);
