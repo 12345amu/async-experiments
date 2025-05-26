@@ -7,4 +7,21 @@ if (customers.length === 0) {
   process.exit(1);
 }
 
-console.log('Customers:', customers);
+function getOrderItems(customer, callback) {
+  console.log(`Fetching order items for ${customer}...`);
+
+  setTimeout(() => {
+    const orders = {
+      Rajesh: ['Samosa', 'Lassi'],
+      Sunita: ['Pani Puri', 'Jalebi'],
+      Vikram: ['Chaat', 'Masala Tea'],
+      Anjali: ['Butter Chicken', 'Naan'],
+      Rahul: ['Paneer Tikka', 'Masala Chai']
+    };
+
+    if (!orders[customer]) {
+      return callback(null, []); 
+    }
+    callback(null, orders[customer]);
+  }, Math.floor(Math.random() * 1000) + 500);
+}
