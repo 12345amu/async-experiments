@@ -11,7 +11,7 @@ if (names.length === 0) {
 function groupByFirstLetter(name, callback) {
   setTimeout(() => {
     const key = name[0].toUpperCase(); 
-    callback( key);
+    callback( null, key);
   }, 100);
 }
 async.groupby(names, groupByFirstLetter, (err, result) => {
