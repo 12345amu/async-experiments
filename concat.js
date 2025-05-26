@@ -25,3 +25,10 @@ function getOrderItems(customer, callback) {
     callback(null, orders[customer]);
   }, Math.floor(Math.random() * 1000) + 500);
 }
+async.concat(customers, getOrderItems, (err, allItems) => {
+  if (err) {
+    console.error('Error fetching orders:', err);
+    return;
+  }
+  console.log('All ordered items concatenated:', allItems);
+});
