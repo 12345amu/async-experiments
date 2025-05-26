@@ -9,3 +9,11 @@ if (numbers.some(isNaN)) {
   console.error(' Please provide only numbers.');
   process.exit(1);
 }
+
+
+function isEven(num, callback) {
+  setTimeout(() => {
+    const isEven = num % 2 === 0;
+    callback(isEven, null);
+  }, 100);
+}
